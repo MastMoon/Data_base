@@ -1,4 +1,3 @@
-/*
 SELECT 고객번호
 	 , 담당자명
      , 마일리지
@@ -13,7 +12,8 @@ SELECT 고객번호
 FROM 고객
 WHERE 마일리지 < 1000
 ORDER BY 1;
-*/
+
+
 
 SELECT 고객번호
 	 , 담당자명

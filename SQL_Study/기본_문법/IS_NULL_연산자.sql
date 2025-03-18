@@ -1,18 +1,15 @@
-/*
-
 SELECT *
 FROM 고객
-WHERE 지역 IS NULL
+WHERE 지역 IS NULL;
 
-*/
 
-/*
 
 SELECT *
 FROM 고객
 WHERE 지역 = '';
 
-*/
+
+
 
 UPDATE 고객
 SET 지역 = NULL
