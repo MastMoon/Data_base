@@ -14,7 +14,7 @@
 정형 데이터는 <mark>**미리 정해진 구조에 따라 저장된 데이터**</mark>를 의미한다. 정형 데이터는 <mark>**엑셀 스프레드시트, 관계형 데이터베이스(RDBMS)의 테이블**</mark>과 같이 행(Row)과 열(Column)로 구성되며, <mark>데이터 검색, 삽입, 수정, 삭제가 용이하다.</mark> 주로 정형화된 업무나 서비스에 사용된다.
 
 <p align="left">
-<img src="https://github.com/user-attachments/assets/af58179f-5758-445c-b721-5db14d6533e6" width="550">
+<img src="https://github.com/user-attachments/assets/af58179f-5758-445c-b721-5db14d6533e6" width="250">
 </p>
 
 ### **2. 반정형 데이터(Semi-Structured Data)**
