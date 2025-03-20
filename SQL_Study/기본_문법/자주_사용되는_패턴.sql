@@ -8,5 +8,4 @@ SELECT * FROM 고객 WHERE REGEXP_LIKE(고객번호, '[P-S]$'); -- '[^P-S]$'
 SELECT * FROM 고객 WHERE REGEXP_LIKE(고객회사명, '^.{5}$'); -- 고객회사명 5글자
 SELECT * FROM 고객 WHERE REGEXP_LIKE(고객번호, '[TS]{2}');
 SELECT * FROM 고객 WHERE REGEXP_LIKE(고객번호, '[TS]{1,2}');
-
 SELECT * FROM 고객 WHERE 전화번호 LIKE '%45';
