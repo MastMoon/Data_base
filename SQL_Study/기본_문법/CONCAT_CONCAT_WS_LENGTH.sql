@@ -32,14 +32,10 @@ FROM 고객
 WHERE 지역 IS NOT NULL
 AND 담당자직위 <> '대표 이사';
 
-
-
 -- [CONCAT 및 CONCAT_WS 함수] 문자열을 연결하는 함수
 -- 파일: CONCAT(_WS).sql
 SELECT CONCAT('DREAMS', 'COME', 'TRUE')
 	 , CONCAT_WS('-', '2025', '03', '20');
-
-
 
 -- [자주 사용되는 SQL 패턴] 다양한 SQL 활용 사례
 -- 파일: 자주_사용되는_패턴.sql
@@ -54,8 +50,6 @@ SELECT * FROM 고객 WHERE REGEXP_LIKE(고객회사명, '^.{5}$'); -- 고객회�
 SELECT * FROM 고객 WHERE REGEXP_LIKE(고객번호, '[TS]{2}');
 SELECT * FROM 고객 WHERE REGEXP_LIKE(고객번호, '[TS]{1,2}');
 SELECT * FROM 고객 WHERE 전화번호 LIKE '%45';
-
-
 
 -- [CHAR_LENGTH 및 LENGTH 함수] 문자열 길이를 계산하는 함수
 -- 파일: (CHAR_)LENGTH.sql
