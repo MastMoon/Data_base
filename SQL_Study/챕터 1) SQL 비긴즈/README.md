@@ -28,7 +28,7 @@
 비정형 데이터는 <mark>**정해진 구조나 규칙이 없고, 연산에 직접 사용하기 어려운 데이터**</mark>이다. 대표적으로 <mark>멀티미디어 데이터(이미지, 영상, 음성 파일), 텍스트 데이터(PDF, 워드 문서), 소셜 미디어 데이터(트위터, 페이스북 게시글)</mark> 등이 포함된다.
 
 <p align="left">
-<img src="https://github.com/user-attachments/assets/f8863a52-5dc4-4d2e-8abc-3e74d9d9f16d" width="250">
+<img src="https://github.com/user-attachments/assets/f8863a52-5dc4-4d2e-8abc-3e74d9d9f16d" width="450">
 </p>
 
 ---
