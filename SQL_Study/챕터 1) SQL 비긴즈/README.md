@@ -20,20 +20,16 @@
 ### **2. 반정형 데이터(Semi-Structured Data)**
 반정형 데이터는 <mark>**정형 데이터처럼 일정한 구조를 가지고 있지는 않지만, 데이터 내부에 구조를 설명하는 메타데이터를 포함하는 데이터**</mark>이다. 예를 들어, <mark>JSON, XML, HTML 파일</mark>과 같이 특정한 형식을 따르지만 자유롭게 데이터를 포함할 수 있다.
 
-**예시**:
-- JSON 파일
-- XML 파일
-- HTML 문서
-- 웹 로그, 센서 데이터
+<p align="left">
+<img src="https://github.com/user-attachments/assets/fa5b3ffa-df52-48a2-ab53-b898680c8ea2" width="250">
+</p>
 
 ### **3. 비정형 데이터(Unstructured Data)**
 비정형 데이터는 <mark>**정해진 구조나 규칙이 없고, 연산에 직접 사용하기 어려운 데이터**</mark>이다. 대표적으로 <mark>멀티미디어 데이터(이미지, 영상, 음성 파일), 텍스트 데이터(PDF, 워드 문서), 소셜 미디어 데이터(트위터, 페이스북 게시글)</mark> 등이 포함된다.
 
-**예시**:
-- 동영상, 오디오 파일
-- SNS 데이터 (트위터, 인스타그램 게시글)
-- PDF 문서 및 워드 파일
-- 이미지, 사진
+<p align="left">
+<img src="https://github.com/user-attachments/assets/f8863a52-5dc4-4d2e-8abc-3e74d9d9f16d" width="250">
+</p>
 
 ---
 
@@ -68,6 +64,10 @@
 ### **기본키(Primary key)**
 - <mark>주된 식별자.</mark>
 - <mark>한 테이블 내에서 행을 구별할 수 있는 열 또는 열의 묶음.</mark>
+
+<p align="left">
+<img src="https://github.com/user-attachments/assets/a0bc04d8-6911-42dc-bd44-63fb8c73e2a3" width="250">
+</p>
 
 ---
 
