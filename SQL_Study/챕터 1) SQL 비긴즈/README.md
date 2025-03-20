@@ -75,14 +75,14 @@ SQL(Structured Query Language)은 <mark>**IBM이 1970년대에 개발한 SEQUEL�
 - `DELETE` : 데이터 삭제
 
 ### **3. 데이터 제어어(DCL, Data Control Language)**
-데이터 접근 권한을 제어하는 언어.
+<mark>데이터 접근 권한을 제어하는 언어.</mark>
 
 **주요 DCL 명령어**:
 - `GRANT` : 특정 사용자에게 권한 부여
 - `REVOKE` : 기존 권한 철회
 
 ### **4. 트랜잭션 제어어(TCL, Transaction Control Language)**
-데이터 변경 사항을 관리하는 언어.
+<mark>데이터 변경 사항을 관리하는 언어.</mark>
 
 **주요 TCL 명령어**:
 - `COMMIT` : 변경된 내용을 영구 저장
