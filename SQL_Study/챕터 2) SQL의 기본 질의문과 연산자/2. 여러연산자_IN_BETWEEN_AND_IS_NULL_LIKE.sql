@@ -43,13 +43,6 @@ SELECT *
 FROM 고객
 WHERE 지역 IS NULL;
 
--- [LIKE 연산자] 특정 패턴과 일치하는 문자열을 검색하는 연산자
--- ==================================================
-SELECT *
-FROM 고객
-WHERE 도시 LIKE '%광역시'
-AND (고객번호 LIKE '_C%' OR 고객번호 LIKE '__C%');
-
 -- [논리 연산자] AND, OR, NOT을 사용하여 논리적 조건을 조합하는 연산자
 -- ==================================================
 SELECT *
@@ -83,23 +76,6 @@ FROM 고객
 WHERE 도시 = '부산광역시' OR 마일리지 < 1000
 ORDER BY 1;
 
--- [IS NULL 연산자] NULL 값을 확인하는 연산자
--- ==================================================
-SELECT *
-FROM 고객
-WHERE 지역 IS NULL;
-
--- 빈 문자열을 NULL 값으로 변경
-UPDATE 고객
-SET 지역 = NULL
-WHERE 지역 = '';
-
--- NULL 값 확인
-SELECT *
-FROM 고객
-WHERE 지역 IS NULL;
-
-
 -- [IN, BETWEEN, AND 연산자] 특정 범위 또는 다중 값과 비교하는 연산자
 -- ==================================================
 -- OR 연산자를 사용한 다중 값 비교
@@ -122,6 +98,30 @@ SELECT 담당자명
 FROM 고객
 WHERE 마일리지 >= 100000
 AND 마일리지 <= 200000;
+/*
+같은 조건을 BETWEEN으로 표현
+WHERE 마일리지 BETWEEN 100000 AND 200000;
+*/
 
--- 같은 조건을 BETWEEN으로 표현
--- WHERE 마일리지 BETWEEN 100000 AND 200000;
+-- [IS NULL 연산자] NULL 값을 확인하는 연산자
+-- ==================================================
+SELECT *
+FROM 고객
+WHERE 지역 IS NULL;
+
+-- 빈 문자열을 NULL 값으로 변경
+UPDATE 고객
+SET 지역 = NULL
+WHERE 지역 = '';
+
+-- NULL 값 확인
+SELECT *
+FROM 고객
+WHERE 지역 IS NULL;
+
+-- [LIKE 연산자] 특정 패턴과 일치하는 문자열을 검색하는 연산자
+-- ==================================================
+SELECT *
+FROM 고객
+WHERE 도시 LIKE '%광역시'
+AND (고객번호 LIKE '_C%' OR 고객번호 LIKE '__C%');
