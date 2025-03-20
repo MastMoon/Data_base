@@ -35,12 +35,9 @@ SELECT *
 FROM 고객
 WHERE 지역 IS NULL;
 
-
-
 SELECT *
 FROM 고객
 WHERE 지역 = '';
-
 
 
 
@@ -75,6 +72,7 @@ SELECT 23 >= 5
      , 23 = 23
 	 , 23 != 23
      , 23 <> 23;
+
 
 
 SELECT *
