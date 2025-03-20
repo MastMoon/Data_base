@@ -1,2 +1,0 @@
-SELECT CONCAT('DREAMS', 'COME', 'TRUE')
-	 , CONCAT_WS('-', '2025', '03', '20');
