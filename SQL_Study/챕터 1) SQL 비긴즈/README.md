@@ -66,7 +66,7 @@
 - <mark>한 테이블 내에서 행을 구별할 수 있는 열 또는 열의 묶음.</mark>
 
 <p align="left">
-<img src="https://github.com/user-attachments/assets/a0bc04d8-6911-42dc-bd44-63fb8c73e2a3" width="450">
+<img src="https://github.com/user-attachments/assets/a0bc04d8-6911-42dc-bd44-63fb8c73e2a3" width="650">
 </p>
 
 ---
