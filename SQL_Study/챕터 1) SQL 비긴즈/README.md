@@ -110,9 +110,7 @@ SQL(Structured Query Language)은 <mark>**IBM이 1970년대에 개발한 SEQUEL�
 <mark>데이터를 관리하는 언어로, 데이터 추가, 삭제, 변경을 수행.</mark>
 
 **주요 DML 명령어**:
-- <mark>`SELECT` : 조건에 맞는 데이터 검색</mark>
--> <mark> 데이터 조작어에 포함하기도 하고 데이터 질의어(Data Query Language, DQL)로 분리하기도 함.</mark>
-
+- <mark>`SELECT` : 조건에 맞는 데이터 검색</mark> -> <mark> 데이터 조작어에 포함하기도 하고 데이터 질의어(Data Query Language, DQL)로 분리하기도 함.</mark>
 - `INSERT` : 새로운 레코드 삽입
 - `UPDATE` : 데이터 값 수정
 - `DELETE` : 데이터 삭제
