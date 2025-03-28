@@ -62,3 +62,50 @@ SELECT
     DATE_ADD(입사일, INTERVAL 500 DAY) AS `500일후`
        -- 예: '2015-06-01' + 500일 → '2016-10-12' (예시)
 FROM 사원;
+
+
+-- 선행학습(내가 생각해서 만든 코드)
+SELECT
+	담당자명,
+    고객회사명,
+    도시,
+    IF(도시 LIKE '%광역시' OR 도시 LIKE '%특별시', '대도시', '도시') AS 도시구분, -- 도시 구분
+    마일리지,
+    IF(마일리지 >= 100000, 'VVIP고객', IF(마일리지 >= 10000, 'VIP고객', '일반고객')) -- 마일리지 구분
+    /*
+    -- 교과서
+    CASE WHEN 마일리지 >= 100000 THEN 'VVIP고객'
+		 WHEN 마일리지 >= 10000 THEN 'VIP고객'
+         ELSE '일반고객'
+	END AS 마일리지구분
+    
+    */
+FROM 고객;
+
+
+SELECT
+	 주문번호,
+     고객번호,
+     주문일,
+     YEAR(주문일) AS 주문년도,
+     QUARTER(주문일) AS 주문분기,
+     MONTH(주문일) AS 주문월,
+     DAY(주문일) AS 주문일,
+     WEEKDAY(주문일) AS 주문요일,
+     CASE WHEN WEEKDAY(주문일) = 0 THEN '월요일'
+		  WHEN WEEKDAY(주문일) = 1 THEN '화요일'
+          WHEN WEEKDAY(주문일) = 2 THEN '수요일'
+          WHEN WEEKDAY(주문일) = 3 THEN '목요일'
+          WHEN WEEKDAY(주문일) = 4 THEN '금요일'
+          WHEN WEEKDAY(주문일) = 5 THEN '토요일'
+          ELSE '일요일'
+     END AS 한글요일
+FROM 주문;
+
+
+SELECT *
+	 , DATEDIFF(발송일, 요청일) AS 지연일수
+FROM 주문
+WHERE DATEDIFF(발송일, 요청일) >= 7;
+
+
