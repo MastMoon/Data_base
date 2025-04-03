@@ -30,8 +30,9 @@ SELECT 제품명,
 	   SUM(재고) AS 재고합
        
 FROM 제품
-WHERE 제품명 LIKE '%아이스크림%'
+WHERE 제품명 LIKE '%아이스크림%' -- (1)
 GROUP BY 제품명;
+-- HAVING 제품명 LIKE '%아이스크림%'; -- (2)
 
 
 SELECT IF(마일리지 >= 50000, 'VIP고객', '일반고객') AS 고객구분,
