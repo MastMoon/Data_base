@@ -120,3 +120,104 @@ ORDER BY 주문금액합 DESC;
 ---------------------------------------------------------------------
 (예시: 주문금액합이 높은 순으로 정렬된 결과)
 */
+
+
+-- 비이퀴 조인
+
+SELECT 고객번호,
+       고객회사명,
+	   담당자명,
+       마일리지,
+       등급.*
+FROM 고객
+INNER JOIN 마일리지등급 AS 등급
+  ON 하한마일리지 <= 마일리지 AND 마일리지 <= 상한마일리지
+-- ON 마일리지 BETWEEN 하한마일리지 AND 상한마일리지 
+WHERE 담당자명 = '이은광';
+
+
+
+-- 외부 조인
+SELECT 사원번호,
+	   이름,
+       성별,
+       부서.부서명
+FROM 사원
+LEFT OUTER JOIN 부서
+ON 사원.부서번호 = 부서.부서번호
+WHERE 성별 = '여';
+
+
+
+SELECT 부서명,
+	   사원.*
+FROM 사원
+RIGHT OUTER JOIN 부서
+ON 사원.부서번호 = 부서.부서번호;
+-- WHERE 사원.부서번호 IS NULL;   
+     
+     
+     
+SELECT 이름,
+	   부서.*
+FROM 사원
+LEFT OUTER JOIN 부서
+ON 사원.부서번호 = 부서.부서번호
+WHERE 부서.부서번호 IS NULL;   
+
+
+
+SELECT 사원.사원번호,
+	   사원.이름,
+       상사.사원번호 AS '상사의 사원번호',
+       상사.이름 AS '상사의 이름'
+FROM 사원
+INNER JOIN 사원 AS 상사
+ON 사원.상사번호 = 상사.사원번호;
+
+
+
+SELECT 사원.이름 AS '이름',
+	   사원.직위,
+       상사.이름 AS '상사이름'
+FROM 사원 AS 상사
+RIGHT OUTER JOIN 사원 
+  ON 사원.상사번호 = 상사.사원번호
+ORDER BY 상사이름;
+
+
+-- 예제 1번
+SELECT 제품명,
+	   SUM(주문수량) AS 주문수량합,
+       SUM(주문수량 * 주문세부.단가) AS 주문금액합
+FROM 제품
+INNER JOIN 주문세부
+ON 제품.제품번호 = 주문세부.제품번호
+GROUP BY 제품명;
+
+
+-- 예제 2번(수정중)
+/*
+SELECT YEAR(주문일) AS '주문년도',
+	   제품명,
+       SUM(주문수량) AS '주문수량합'
+FROM 제품
+INNER JOIN 주문세부
+ON 주문.주문번호 = 주문세부.주문번호
+GROUP BY 제품명
+WHERE 제품명 '%아이스크림%';
+
+*/
+
+
+
+
+-- 예제 3번
+SELECT 제품명,
+	   SUM(주문수량) AS '주문수량합'
+FROM 제품
+LEFT OUTER JOIN 주문세부
+  ON 주문세부.제품번호 = 제품.제품번호
+GROUP BY 제품명;
+
+
