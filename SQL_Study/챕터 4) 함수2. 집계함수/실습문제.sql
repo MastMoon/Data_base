@@ -7,12 +7,12 @@ FROM 주문세부
 GROUP BY 제품번호
 ORDER BY 제품번호; -- 정렬되게함. 이거 없어도 1번 문제에 조건에 어긋나지않음.
 
--- 2번
+-- 2번 ★★
 SELECT 주문번호,
-	   제품번호,
+	   GROUP_CONCAT(제품번호) AS 제품번호목록,
        SUM(단가 * 주문수량) AS 주문금액합
 FROM 주문세부
-GROUP BY 주문번호, 제품번호;
+GROUP BY 주문번호;
 
 -- 3번
 SELECT YEAR(주문일) AS 주문년도,
