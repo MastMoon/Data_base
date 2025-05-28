@@ -66,3 +66,83 @@ CREATE TABLE 학생
 );
 -- 예상 스키마:
 -- 학번(PK), 이름(NOT NULL), 생일(NOT NULL), 연락처(UNIQUE), 학과번호(FK), 성별(CHECK), 등록일(DEFAULT)
+
+
+
+
+CREATE TABLE 과목
+(
+과목번호 CHAR(5) PRIMARY KEY,
+과목명 VARCHAR(20) NOT NULL,
+학점 INT NOT NULL CHECK(학점 BETWEEN 2 AND 4),
+구분 VARCHAR(20) CHECK(구분 IN ('전공',  '교양', '일반'))
+);
+
+
+CREATE TABLE 수강_1
+(
+수강년도 CHAR(4) NOT NULL,
+수강학기 VARCHAR(20) NOT NULL CHECK(수강학기 IN ('1학기', '2학기', '여름학기', '겨울학기')),
+학번 CHAR(5) NOT NULL,
+과목번호 CHAR(5) NOT NULL,
+성적  NUMERIC(3,1) CHECK(성적 BETWEEN 0 AND 4.5),
+PRIMARY KEY(수강년도, 수강학기, 학번, 과목번호),
+FOREIGN KEY (학번) REFERENCES 학생(학번),
+FOREIGN KEY (과목번호) REFERENCES 과목(과목번호)
+);
+
+
+CREATE TABLE 수강_2
+(
+수강번호 INT PRIMARY KEY AUTO_INCREMENT,
+수강년도 CHAR(4) NOT NULL,
+수강학기 VARCHAR(20) NOT NULL CHECK(수강학기 IN ('1학기', '2학기', '여름학기', '겨울학기')),
+학번 CHAR(5) NOT NULL,
+과목번호 CHAR(5) NOT NULL,
+성적  NUMERIC(3,1) CHECK(성적 BETWEEN 0 AND 4.5),
+FOREIGN KEY (학번) REFERENCES 학생(학번),
+FOREIGN KEY (과목번호) REFERENCES 과목(과목번호)
+);
+
+
+INSERT INTO 학과
+VALUES ('AA', '컴퓨터공학과', '배경민');
+INSERT INTO 학과
+VALUES ('BB', '소프트웨어학과', '김남준');
+INSERT INTO 학과
+VALUES ('CC', '디자인융합학과', '박선영');
+SELECT * FROM 학과;
+
+
+INSERT INTO 학생(학번, 이름, 생일, 학과번호)
+VALUE ('S0001', '이윤주', '2020-01-30', 'AA');
+INSERT INTO 학생(학번, 이름, 생일, 학과번호)
+VALUE ('S0002', '이승은', '2021-02-23', 'BB');
+INSERT INTO 학생(학번, 이름, 생일, 학과번호)
+VALUE ('S0003', '백재용', '2018-03-31', 'CC');
+SELECT * FROM 학생;
+
+
+INSERT INTO 과목(과목번호, 과목명, 구분, 학점)
+VALUE ('C0001', '데이터베이스실습', '전공', 3);
+INSERT INTO 과목(과목번호, 과목명, 구분, 학점)
+VALUE ('C0002', '데이터베이스 설계와 구축', '전공', 3);
+INSERT INTO 과목(과목번호, 과목명, 구분, 학점)
+VALUE ('C0003', '데이터 분석', '전공', 3);
+SELECT * FROM 과목;
+
+
+INSERT INTO 수강_1(수강년도, 수강학기, 학번, 과목번호, 성적)
+VALUE('2023', '1학기', 'S0001', 'C0001', 4.3);
+INSERT INTO 수강_1(수강년도, 수강학기, 학번, 과목번호, 성적)
+VALUE('2023', '1학기', 'S0001', 'C0002', 4.4);
+INSERT INTO 수강_1(수강년도, 수강학기, 학번, 과목번호, 성적)
+VALUE('2023', '1학기', 'S0002', 'C0002', 4.3);
+SELECT * FROM 수강_1;
+
+
+INSERT INTO 수강_2(수강년도, 수강학기, 학번, 과목번호, 성적)
+VALUE('2023', '1학기', 'S0001', 'C0001', 4.3);
+INSERT INTO 수강_2(수강년도, 수강학기, 학번, 과목번호, 성적)
+VALUE('2023', '1학기', 'S0001', 'C0001', 4.5);
+SELECT * FROM 수강_2;
