@@ -146,3 +146,68 @@ VALUE('2023', '1학기', 'S0001', 'C0001', 4.3);
 INSERT INTO 수강_2(수강년도, 수강학기, 학번, 과목번호, 성적)
 VALUE('2023', '1학기', 'S0001', 'C0001', 4.5);
 SELECT * FROM 수강_2;
+
+
+-- 제약조건의 추가
+ALTER TABLE 학생 ADD CONSTRAINT CHECK(학번 LIKE 'S%');
+-- 학생 테이블에 설정되어 있는 제약조건 명세를 확인하는방법
+SELECT *
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE CONSTRAINT_SCHEMA = '한빛학사'
+AND TABLE_NAME = '학생';
+
+-- 제약조건의 삭제
+ALTER TABLE 학생 DROP CONSTRAINT 연락처;
+
+ALTER TABLE 학생 DROP CONSTRAINT 학생_chk_1;
+ALTER TABLE 학생 DROP CONSTRAINT 학생_chk_2;
+ALTER TABLE 학생 ADD CHECK (학번 LIKE 'S%');
+
+CREATE TABLE 학생_2
+(
+  학번       CHAR(5),               -- 기본키
+  이름       VARCHAR(20)   NOT NULL,                  -- NOT NULL
+  생일       DATE          NOT NULL,                  -- NOT NULL
+  연락처     VARCHAR(20),                    -- 유일 제약
+  학과번호   CHAR(2),  -- 외래키
+  성별       CHAR(1),
+  등록일     DATE          DEFAULT(CURDATE()),         -- 기본값
+  PRIMARY KEY(학번),
+  CONSTRAINT UK_학생2_연락처 UNIQUE(연락처),
+  CONSTRAINT CK_학생2_성별 CHECK(성별 IN ('남','여')),
+   CONSTRAINT CK_학생2_학과번호 FOREIGN KEY (학과번호) REFERENCES 학과(학과번호)
+);
+
+-- 학생 테이블에 설정되어 있는 제약조건 명세를 확인하는방법
+SELECT *
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE CONSTRAINT_SCHEMA = '한빛학사'
+AND TABLE_NAME = '학생_2';
+
+
+CREATE TABLE 수강평가
+(
+평가순번 INT PRIMARY KEY AUTO_INCREMENT,
+학번 CHAR(5) NOT NULL,
+과목번호 CHAR(5) NOT NULL,
+평점 INT CHECK(평점 BETWEEN 0 AND 5),
+과목평가 VARCHAR(500),
+평가일시 DATETIME DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (학번) REFERENCES 학생(학번),
+FOREIGN KEY (과목번호) REFERENCES 과목(과목번호) ON DELETE CASCADE
+);
+
+
+INSERT INTO 수강평가(학번, 과목번호, 평점, 과목평가)
+VALUE('S0001', 'C0001', 5, 'SQL학습에 도움이 되었습니다.'),
+		  ('S0001', 'C0003', 5, 'SQL 활용을 배워서 좋았습니다.'),
+          ('S0002', 'C0003', 5, '데이터 분석에 관심이 생겼습니다..'),
+          ('S0003', 'C0003', 5, '머신러닝과 시각화 부분이 유용했습니다.');
+
+
+DELETE FROM 과목 WHERE 과목번호 = 'C0003';
+SELECT * FROM 과목;
+SELECT * FROM 수강평가;
+
+
+DELETE FROM 과목 WHERE 과목번호 = 'C0001';
