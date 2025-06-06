@@ -21,7 +21,7 @@ WHERE 부서번호 = (SELECT 부서번호
 -- 한 번도 주문한 적이 없는 제품의 정보를 보이시오.
 -- 상관서브쿼리
 SELECT *,
-			(단가 * 재고) AS 재고금액
+			단가 * 재고 AS 재고금액
 FROM 제품 AS p
 WHERE NOT EXISTS (
 								SELECT *
@@ -32,7 +32,7 @@ WHERE NOT EXISTS (
                                 
 -- 외부 조인
 SELECT 제품.*,
-			(제품.단가 * 제품.재고) AS 재고금액
+			제품.단가 * 제품.재고 AS 재고금액
 FROM 제품
 LEFT OUTER JOIN 주문세부
 ON 제품.제품번호 = 주문세부. 제품번호           
